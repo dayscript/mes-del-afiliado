@@ -83,7 +83,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                {{ Form::label('affiliate_time', 'Tiempo afiliado', array('class' => 'd-none d-sm-block col-4 col-form-label text-white' )) }}
+                                {{ Form::label('affiliate_time', 'Tiempo afiliado (años)', array('class' => 'd-none d-sm-block col-4 col-form-label text-white' )) }}
                                 <div class="col-12 col-sm-8">
                                     {{ Form::text('affiliate_time', null, array('placeholder' => 'Tiempo afiliado', 'class' => 'form-control form-control-sm mt-3' )) }}
                                 </div>

@@ -33,10 +33,10 @@ class UserUpdateValidation extends FormRequest
             'last_name' => 'required',
             //'identification' => 'required|unique',
             'city' => 'required',
-            'affiliate_time' => 'required',
+            'affiliate_time' => 'required|numeric',
             'email' => 'required|email',
-            'phone' => 'required',
-            'mobile' => 'required',
+            'phone' => 'required|numeric',
+            'mobile' => 'required|numeric',
         ];
     }
 
@@ -48,10 +48,13 @@ class UserUpdateValidation extends FormRequest
             //'identification.required' => 'El campo No Documento es obligatorio.',
             'city.required' => 'El campo Ciudad es obligatorio.',
             'affiliate_time.required' => 'El campo Tiempo afiliado es obligatorio.',
+            'affiliate_time.numeric' => 'El campo Tiempo afiliado debe ser numérico.',
             'email.required' => 'El campo Correo electrónico es obligatorio.',
             'email.email' => 'El Correo electrónico debe ser una dirección de correo electrónico válida.',
             'phone.required' => 'El campo Teléfono es obligatorio.',
+            'phone.numeric' => 'El campo Teléfono debe ser numérico.',
             'mobile.required' => 'El campo Celular es obligatorio.',
+            'mobile.numeric' => 'El campo Celular debe ser numérico.',
         ];
     }
 
