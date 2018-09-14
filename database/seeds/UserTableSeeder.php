@@ -16,12 +16,12 @@ class UserTableSeeder extends Seeder
         $role_user = Role::where('name', 'user')->first();
         $role_admin = Role::where('name', 'admin')->first();
         $user = new User();
-        $user->first_name = 'Admin';
-        $user->last_name = 'dayscript';
-        $user->identification = '1032451235';
+        $user->first_name = 'Nicolas';
+        $user->last_name = 'Troncoso';
+        $user->identification = '123456789';
         $user->city = '';
         $user->affiliate_time = '';
-        $user->email = 'cvillamil@dayscript.com';
+        $user->email = 'nicolas.troncoso@grupolaestacion.com';
         $user->phone = '';
         $user->mobile = '';
         $user->dependence = '';
@@ -29,7 +29,7 @@ class UserTableSeeder extends Seeder
         $user->number_children = '';
         $user->car = '';
         $user->api_token = str_random(50);
-        $user->password = bcrypt('p0p01234');
+        $user->password = bcrypt('nicolas.troncoso');
         $user->save();
         $user->roles()->attach($role_admin);
     }

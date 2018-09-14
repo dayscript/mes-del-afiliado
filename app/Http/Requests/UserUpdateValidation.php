@@ -28,7 +28,11 @@ class UserUpdateValidation extends FormRequest
 
         return [
             'first_name' => 'required',
-            'email' => 'required|email'
+            'last_name' => 'required',
+            'identification' => 'required',
+            'city' => 'required',
+            'affiliate_time' => 'required',
+
         ];
     }
 
@@ -36,9 +40,11 @@ class UserUpdateValidation extends FormRequest
     public function messages()
     {
         return [
-            'first_name.required' => 'El :attribute es obligatorio.',
-            'email.required' => 'Añade un :attribute al producto',
-            'email.unique' => 'ya hay un usuarios cosndakdjlakd :attribute al producto',
+            'first_name.required' => 'El campo Nombres es obligatorio.',
+            'last_name.required' => 'El campo Apellidos es obligatorio.',
+            'identification.required' => 'El campo No Documento es obligatorio.',
+            'city.required' => 'El campo Ciudad es obligatorio.',
+            'affiliate_time.required' => 'El campo Ciudad es obligatorio.',
 
         ];
     }
