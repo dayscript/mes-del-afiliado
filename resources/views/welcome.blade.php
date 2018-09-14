@@ -44,8 +44,8 @@
                         {{ Form::open(array('url' => '/')) }}
 
                             <div class="form-group">
-                              <label class="text-white">Ingrese su numero de cédula</label>
-                              {{ Form::text('identification', null, array('placeholder' => '--Cedula--', 'class' => 'form-control form-control-sm mt-3' )) }}
+                              <label class="text-white">Para actualizar datos por favor ingrese su numero de cédula</label>
+                              {{ Form::text('identification', null, array('placeholder' => 'Cédula', 'class' => 'form-control form-control-sm mt-3' )) }}
                             </div>
                             <div class="form-group">
                               {{ Form::button( 'Buscar', array('type' => 'submit', 'class' => 'btn btn-primary mt-3' )) }}
