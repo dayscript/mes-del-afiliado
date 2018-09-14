@@ -106,12 +106,12 @@
                                     {{ Form::text('mobile', null, array('placeholder' => 'Celular', 'class' => 'form-control form-control-sm mt-3' )) }}
                                 </div>
                             </div>
-                            <div class="row">
+                            {{-- <div class="row">
                                 {{ Form::label('dependence', 'Dependencia', array('class' => 'd-none d-sm-block col-4 col-form-label text-white' )) }}
                                 <div class="col-12 col-sm-8">
-                                    {{ Form::text('dependence', null, array('placeholder' => 'Dependencia', 'class' => 'form-control form-control-sm mt-3', 'disabled' )) }}
+                                    {{ Form::text('dependence', null, array('placeholder' => 'Dependencia', 'class' => 'form-control form-control-sm mt-3', 'hidden' )) }}
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="row">
                                 <div class="col-12 text-right">
                                     {{ Form::button( 'Actualizar datos', array('type' => 'submit', 'class' => 'btn btn-primary mt-3' )) }}
