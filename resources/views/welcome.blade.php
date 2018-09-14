@@ -28,7 +28,6 @@
                             <img src="{{ asset('img/logo.png') }}" alt="Responsive image" class="col-12 img-fluid">
                         </div>
 
-
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -42,6 +41,12 @@
                         @if (!isset($user))
 
                         {{ Form::open(array('url' => '/')) }}
+                        
+                        @if (session('message'))
+                            <div class="alert alert-danger">
+                                {{ session('message') }}
+                            </div>
+                        @endif
 
                             <div class="form-group">
                               <label class="text-white">Para actualizar datos por favor ingrese su numero de cédula</label>

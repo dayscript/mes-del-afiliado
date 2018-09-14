@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,14 @@ Route::get('/', function(){
 })->name('welcome');
 
 Route::post('/', function(){
-	$identification = Input::get('identification');
-	$user = \App\User::firstOrCreate(['identification' =>  $identification]);
-	return view('welcome')->with('user', $user);	
+	$user = User::where('identification', '=', Input::get('identification'))->first();
+	if ($user === null) {
+	    return Redirect::to('/')->with('message', 'Usuario no registrado en la base de datos');
+	}else{
+	//$identification = Input::get('identification');
+	//$user = \App\User::firstOrCreate(['identification' =>  $identification]);
+	return view('welcome')->with('user', $user);
+	}
 })->name('welcome');
 
 Route::get('/gracias', function(){
