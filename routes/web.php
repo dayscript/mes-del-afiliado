@@ -23,16 +23,25 @@ Route::get('/', function(){
 
 })->name('welcome');
 
-Route::post('/', function(){
+Route::post('/actualizacion-datos', function(){
 	$user = User::where('identification', '=', Input::get('identification'))->first();
 	if ($user === null) {
 	    return Redirect::to('/')->with('message', 'Usuario no registrado en la base de datos');
 	}else{
 	//$identification = Input::get('identification');
 	//$user = \App\User::firstOrCreate(['identification' =>  $identification]);
-	return view('welcome')->with('user', $user);
+	Session::put('user-id', $user->id);
+	return view('actualizacion')->with('user', $user);
 	}
 })->name('welcome');
+
+Route::get('/actualizacion-datos', function(Request $request){
+	$id = Session::get('user-id');
+	$user = User::find($id);
+	//dd($user);
+	return view('actualizacion')->with('user', $user);
+})->name('welcome');
+
 
 Route::get('/gracias', function(){
 	Session::put('user-id',null);

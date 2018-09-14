@@ -29,9 +29,8 @@ class UserUpdateValidation extends FormRequest
     {
 
         return [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            //'identification' => 'required|unique',
+            'first_name' => 'required|regex:/^[A-Za-z\s]+$/u',
+            'last_name' => 'required|regex:/^[A-Za-z\s]+$/u',
             'city' => 'required',
             'affiliate_time' => 'required|numeric',
             'email' => 'required|email',
@@ -44,8 +43,9 @@ class UserUpdateValidation extends FormRequest
     {
         return [
             'first_name.required' => 'El campo Nombres es obligatorio.',
+            'first_name.regex' => 'El campo Nombre contiene caracteres no permitidos.',
             'last_name.required' => 'El campo Apellidos es obligatorio.',
-            //'identification.required' => 'El campo No Documento es obligatorio.',
+            'last_name.regex' => 'El campo Apellidos contiene caracteres no permitidos.',
             'city.required' => 'El campo Ciudad es obligatorio.',
             'affiliate_time.required' => 'El campo Tiempo afiliado es obligatorio.',
             'affiliate_time.numeric' => 'El campo Tiempo afiliado debe ser numérico.',

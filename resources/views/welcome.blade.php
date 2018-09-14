@@ -43,14 +43,13 @@
 
                         @if (!isset($user))
                         <div class="col-xl-6 col-md-12 col-sm-12">
-                            {{ Form::open(array('url' => '/')) }}
+                            {{ Form::open(array('url' => '/actualizacion-datos')) }}
                             
                             @if (session('message'))
                                 <div class="alert alert-danger">
                                     {{ session('message') }}
                                 </div>
                             @endif
-
                                 <div class="form-group">
                                   <label class="text-white">Para actualizar datos por favor ingrese su numero de cédula</label>
                                   {{ Form::text('identification', null, array('placeholder' => 'Cédula', 'class' => 'form-control form-control-sm mt-3 col-xl-6 col-md-12 col-sm-12' )) }}
@@ -60,76 +59,7 @@
                                 </div>
                             {{ Form::close() }}
                         </div>
-
                         @endif
-
-
-                        @if (isset($user))
-                        <div class="col-xl-6 col-md-12 col-sm-12 ">
-                            {{ Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'PATCH'], ['role' => 'form']) }}
-                            <div class="row">
-                                {{ Form::label('first_name', 'Nombres', array('class' => 'd-none d-sm-block col-4 col-form-label text-white' )) }}
-                                <div class="col-12 col-sm-8">
-                                    {{ Form::text('first_name', null, array('placeholder' => 'Nombres', 'class' => 'form-control form-control-sm mt-3' )) }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                {{ Form::label('last_name', 'Apellidos', array('class' => 'd-none d-sm-block col-4 col-form-label text-white' )) }}
-                                <div class="col-12 col-sm-8">
-                                    {{ Form::text('last_name', null, array('placeholder' => 'Apellidos', 'class' => 'form-control form-control-sm mt-3' )) }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                {{ Form::label('identification', 'No Documento', array('class' => 'd-none d-sm-block col-4 col-form-label text-white' )) }}
-                                <div class="col-12 col-sm-8">
-                                    {{ Form::text('identification', null, array('placeholder' => 'No Documento', 'class' => 'form-control form-control-sm mt-3', 'disabled' )) }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                {{ Form::label('city', 'Ciudad', array('class' => 'd-none d-sm-block col-4 col-form-label text-white' )) }}
-                                <div class="col-12 col-sm-8">
-                                    {{ Form::text('city', null, array('placeholder' => 'Ciudad', 'class' => 'form-control form-control-sm mt-3' )) }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                {{ Form::label('affiliate_time', 'Tiempo afiliado (años)', array('class' => 'd-none d-sm-block col-4 col-form-label text-white' )) }}
-                                <div class="col-12 col-sm-8">
-                                    {{ Form::text('affiliate_time', null, array('placeholder' => 'Tiempo afiliado', 'class' => 'form-control form-control-sm mt-3' )) }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                {{ Form::label('email', 'Correo electrónico', array('class' => 'd-none d-sm-block col-4 col-form-label text-white' )) }}
-                                <div class="col-12 col-sm-8">
-                                    {{ Form::text('email', null, array('placeholder' => 'Correo electrónico', 'class' => 'form-control form-control-sm mt-3' )) }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                {{ Form::label('phone', 'Teléfono', array('class' => 'd-none d-sm-block col-4 col-form-label text-white' )) }}
-                                <div class="col-12 col-sm-8">
-                                    {{ Form::text('phone', null, array('placeholder' => 'Teléfono', 'class' => 'form-control form-control-sm mt-3' )) }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                {{ Form::label('mobile', 'Celular', array('class' => 'd-none d-sm-block col-4 col-form-label text-white' )) }}
-                                <div class="col-12 col-sm-8">
-                                    {{ Form::text('mobile', null, array('placeholder' => 'Celular', 'class' => 'form-control form-control-sm mt-3' )) }}
-                                </div>
-                            </div>
-                            {{-- <div class="row">
-                                {{ Form::label('dependence', 'Dependencia', array('class' => 'd-none d-sm-block col-4 col-form-label text-white' )) }}
-                                <div class="col-12 col-sm-8">
-                                    {{ Form::text('dependence', null, array('placeholder' => 'Dependencia', 'class' => 'form-control form-control-sm mt-3', 'hidden' )) }}
-                                </div>
-                            </div> --}}
-                            <div class="row">
-                                <div class="col-12 text-right">
-                                    {{ Form::button( 'Actualizar datos', array('type' => 'submit', 'class' => 'btn btn-primary mt-3' )) }}
-                                </div>
-                            </div>
-                            {{ Form::close() }}
-                        </div>
-                        @endif
-
                     </div>
                 </div>
             </div>
