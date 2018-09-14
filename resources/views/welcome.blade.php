@@ -14,8 +14,11 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-image: url("/img/fondo.jpg");
-                background-size: cover;
+                background: url("/img/fondo.jpg") no-repeat center center fixed; 
+                  -webkit-background-size: cover;
+                  -moz-background-size: cover;
+                  -o-background-size: cover;
+                  background-size: cover;
             }
         </style>
     </head>
