@@ -100,6 +100,7 @@ class UserController extends Controller
         }
         $data = $request->all();
         $user->fill($data);
+        $user->update_user = 1;
         $user->save();
         return Redirect::route('gracias');
 /*      $validated = $request->validated();
