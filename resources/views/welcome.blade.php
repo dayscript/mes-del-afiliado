@@ -39,23 +39,24 @@
                         @endif
 
                         @if (!isset($user))
+                        <div class="col-xl-6 col-md-12 col-sm-12">
+                            {{ Form::open(array('url' => '/')) }}
+                            
+                            @if (session('message'))
+                                <div class="alert alert-danger">
+                                    {{ session('message') }}
+                                </div>
+                            @endif
 
-                        {{ Form::open(array('url' => '/')) }}
-                        
-                        @if (session('message'))
-                            <div class="alert alert-danger">
-                                {{ session('message') }}
-                            </div>
-                        @endif
-
-                            <div class="form-group">
-                              <label class="text-white">Para actualizar datos por favor ingrese su numero de cédula</label>
-                              {{ Form::text('identification', null, array('placeholder' => 'Cédula', 'class' => 'form-control form-control-sm mt-3' )) }}
-                            </div>
-                            <div class="form-group">
-                              {{ Form::button( 'Buscar', array('type' => 'submit', 'class' => 'btn btn-primary mt-3' )) }}
-                            </div>
-                        {{ Form::close() }}
+                                <div class="form-group">
+                                  <label class="text-white">Para actualizar datos por favor ingrese su numero de cédula</label>
+                                  {{ Form::text('identification', null, array('placeholder' => 'Cédula', 'class' => 'form-control form-control-sm mt-3 col-xl-6 col-md-12 col-sm-12' )) }}
+                                </div>
+                                <div class="form-group">
+                                  {{ Form::button( 'Buscar', array('type' => 'submit', 'class' => 'btn btn-primary mt-3' )) }}
+                                </div>
+                            {{ Form::close() }}
+                        </div>
 
                         @endif
 
