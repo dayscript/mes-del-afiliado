@@ -100,7 +100,7 @@ class ScorerController extends Controller
         
             $users = User::where('dependence', 'SUDIR')->orWhere('dependence', 'SEGEN')->get();
         }else{
-            $users = User::where('dependence', $dependence)->get();
+            $users = User::where('dependence', $dependence)->where('first_name', '!=', '')->get();
         }
         
         while($count <= $winners-1){
