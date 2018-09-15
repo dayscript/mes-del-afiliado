@@ -10,6 +10,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="{{ asset('js/custom.js') }}"></script>
 
         <!-- Styles -->
         <style>
@@ -27,10 +29,29 @@
                         <div class="col">
                             <h1 class="text-white">Sorteo</h1>
                             {{ Form::open( array('method' => 'POST', 'dependence' => 'dependence', 'winners' => 'winners')) }}
+
+                            @if($winner != NULL)
+                              <div class="form-group">
+                                {{ Form::label('dependence', 'Selecciona la Dependencia a sortear', array('class' => 'col-form-label text-white' )) }}
+                                <select class="form-control" name="dependence" disabled="disabled">
+                                  @foreach($id_dependence as $item)
+                                    <option value="{{$item->name}}">{{$item->name}}</option>
+                                  @endforeach
+                                </select>
+                              </div>
+                            @else
+                              <div class="form-group">
+                                {{ Form::label('dependence', 'Selecciona la Dependencia a sortear', array('class' => 'col-form-label text-white' )) }}
+                                <select class="form-control" name="dependence">
+                                  @foreach($id_dependence as $item)
+                                    <option value="{{$item->name}}">{{$item->name}}</option>
+                                  @endforeach
+                                </select>
+                              </div>
+                            @endif
                                 <div class="form-group">
-                                  <label class="text-white">Seleccionar Dependencia</label>
-                                  {{ Form::select('dependence', $id_dependence, null,['class'=>'form-control mt-3']) }}
-                                  {{ Form::select('winners', [ '1' => '1',
+                                  {{ Form::select('winners', [ '0' => '0',
+                                                               '1' => '1',
                                                                '2' => '2',
                                                                '3' => '3',
                                                                '4' => '4',
@@ -40,10 +61,15 @@
                                                                '8' => '8',
                                                                '9' => '9',
                                                                '10' => '10'
-                                                               ],null,['class'=>'form-control mt-3']) }}
+                                                               ],null,['class'=>'form-control mt-3 invisible']) }}
                                 </div>
                                 <div class="form-group">
                                   <button class="btn btn-success" type="submit">Generar Ganador</button>
+                                </div>
+                            {{ Form::close() }}
+                            {{ Form::open() }}
+                                <div class="form-group">
+                                  <button class="btn btn-primary" type="submit">Nuevo Sorteo</button>
                                 </div>
                             {{ Form::close() }}
                         </div>
@@ -53,12 +79,14 @@
                                 <tr>
                                     <th class="text-white">Nombre</th>
                                     <th class="text-white">No Cédula</th>
+                                    <th class="text-white">Dependencia</th>
                                 </tr>
                                 @if($winner != NULL)
                                     @foreach ($winner as $win)
                                     <tr>
                                         <td class="text-white">{{ $win->first_name }}</td>
                                         <td class="text-white">{{ $win->identification }}</td>
+                                        <td class="text-white">{{ $win->dependence }}</td>
                                     </tr>
                                     @endforeach
                                 @endif

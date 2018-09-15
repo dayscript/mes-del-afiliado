@@ -24,8 +24,8 @@
             <div class="align-middle d-table-cell">
                 <div class="container">
                     <div class="row">
-                        <div class="col">
-                            <img src="{{ asset('img/confirmacion.png') }}" alt="Responsive image" class="img-fluid mx-auto d-block">
+                        <div class="col-xl-6 col-md-8 col-sm-12 mx-auto d-block">
+                            <img src="{{ asset('img/confirmacion.png') }}" alt="Responsive image" class="col-12 img-fluid">
                         </div>
                     </div>
                 </div>

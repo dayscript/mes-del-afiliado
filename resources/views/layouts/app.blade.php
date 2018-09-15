@@ -47,6 +47,12 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li> -->
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('scorer.sorteo') }}">Sorteo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/scorer/ganadores">Ganadores</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->first_name }} <span class="caret"></span>

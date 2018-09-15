@@ -14,11 +14,7 @@ use Illuminate\Support\Facades\Input;
 */
 Auth::routes();
 Route::get('/', function(){
-	//  $user = Session::get('user-id');
-/*	if(!$user){
-		return view('nologin');
-	}*/
-
+    
     return view('welcome');
 
 })->name('welcome');
@@ -28,8 +24,6 @@ Route::post('/actualizacion-datos', function(){
 	if ($user === null) {
 	    return Redirect::to('/')->with('message', 'Usuario no registrado en la base de datos');
 	}else{
-	//$identification = Input::get('identification');
-	//$user = \App\User::firstOrCreate(['identification' =>  $identification]);
 	Session::put('user-id', $user->id);
 	return view('actualizacion')->with('user', $user);
 	}
@@ -38,7 +32,6 @@ Route::post('/actualizacion-datos', function(){
 Route::get('/actualizacion-datos', function(Request $request){
 	$id = Session::get('user-id');
 	$user = User::find($id);
-	//dd($user);
 	return view('actualizacion')->with('user', $user);
 })->name('welcome');
 
@@ -51,12 +44,9 @@ Route::get('/gracias', function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-/*Route::get('import', function() {
-	return view('import');
-})->middleware('auth', 'role:admin');*/
-
 Route::get('/scorer/sorteo', 'ScorerController@sorteo')->name('scorer.sorteo')->middleware('auth', 'role:admin');
 Route::post('/scorer/sorteo', 'ScorerController@sorteo')->name('scorer.sorteo')->middleware('auth', 'role:admin');
+Route::get('/scorer/ganadores', 'ScorerController@ganadores')->middleware('auth', 'role:admin');
 
 Route::resource('scorer', 'ScorerController');
 Route::get('/users/import', 'UserController@getImport')->name('users.import')->middleware('auth', 'role:admin');
