@@ -51,7 +51,7 @@ Route::get('/scorer/ganadores', 'ScorerController@ganadores')->middleware('auth'
 Route::resource('scorer', 'ScorerController');
 Route::get('/users/import', 'UserController@getImport')->name('users.import')->middleware('auth', 'role:admin');
 Route::post('/users/import', 'UserController@parseImport')->name('users.import.csv')->middleware('auth', 'role:admin');
-Route::resource('users', 'UserController')->middleware('auth', 'role:admin');
+Route::resource('users', 'UserController');
 
 Route::group(['middleware' => ['auth:api']], function () {
     Route::get('api-user', function () {
